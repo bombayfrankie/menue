@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bombay Food Co. | Authentic Bombay Street Food in Melbourne</title>
+    <meta name="description" content="Bombay Food Co. - Authentic Bombay street food in Melbourne. Specializing in fresh Frankies, Bombay Sandwiches, and Chinese Bhel. Order from YD's Kitchen in Southbank.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #5a6b2f 0%, #7a8f4a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-50px) rotate(180deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .logo {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            font-size: 80px;
+            margin-top: 80px;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 72px;
+            margin-bottom: 10px;
+            letter-spacing: 8px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1s ease-out 0.3s both;
+        }
+
+        .tagline {
+            font-size: 24px;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            font-weight: 600;
+            animation: slideIn 1s ease-out 0.4s both;
+        }
+
+        .description {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            animation: slideIn 1s ease-out 0.6s both;
+        }
+
+        .welcome-banner {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+            animation: slideIn 1s ease-out 0.2s both;
+        }
+
+        .welcome-banner-content {
+            background: rgba(255,255,255,0.95);
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .welcome-banner p {
+            margin: 0;
+            font-size: 18px;
+            color: #5a6b2f;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            background: white;
+            color: #5a6b2f;
+            padding: 18px 45px;
+            font-size: 20px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            animation: slideIn 1s ease-out 0.9s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            background: #f5f5dc;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 52px;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #5a6b2f;
+            letter-spacing: 3px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about {
+            background: #f9f7f4;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
+            height: 400px;
+            border-radius: 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.1) 75%);
+            background-size: 50px 50px;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .about-text h3 {
+            font-size: 32px;
+            color: #5a6b2f;
+            margin-bottom: 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffe7b3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #7a8f4a;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-box strong {
+            font-size: 18px;
+            color: #5a6b2f;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #5a6b2f;
+            line-height: 1.8;
+        }
+
+        /* Menu Section */
+        .menu {
+            background: white;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto 60px;
+        }
+
+        .menu-card {
+            background: linear-gradient(135deg, #f9f7f4 0%, #f0ede7 100%);
+            padding: 35px 30px;
+            border-radius: 20px;
+            border: 3px solid #7a8f4a;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .menu-card.special {
+            border-color: #ff6b6b;
+        }
+
+        .menu-icon {
+            font-size: 70px;
+            margin-bottom: 15px;
+        }
+
+        .menu-card h3 {
+            font-size: 28px;
+            color: #5a6b2f;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .menu-price {
+            font-size: 24px;
+            color: #d48b5e;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .menu-description {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .menu-features {
+            background: #fff8e1;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .menu-features p {
+            font-size: 13px;
+            color: #5a6b2f;
+            margin: 0;
+            font-weight: 600;
+            line-height: 1.8;
+        }
+
+        .badge {
+            background: #d48b5e;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .menu-button {
+            background: #5a6b2f;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .menu-button:hover {
+            background: #7a8f4a;
+            transform: scale(1.05);
+        }
+
+        .menu-button.order-btn {
+            background: #d48b5e;
+        }
+
+        .menu-button.order-btn:hover {
+            background: #e09f72;
+        }
+
+        /* Builder Sections */
+        .builder-section {
+            background: #f9f7f4;
+            padding: 60px 20px;
+            margin-top: 40px;
+            border-radius: 20px;
+        }
+
+        .builder-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 42px;
+            text-align: center;
+            color: #5a6b2f;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .builder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .builder-step {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #7a8f4a;
+        }
+
+        .step-number {
+            background: #5a6b2f;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .step-title {
+            font-size: 20px;
+            color: #5a6b2f;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .step-options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-options li {
+            padding: 8px 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .step-options li:last-child {
+            border-bottom: none;
+        }
+
+        .step-note {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Important Info */
+        .info-section {
+            background: white;
+            padding: 60px 20px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffe7b3 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px dashed #7a8f4a;
+        }
+
+        .info-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            font-size: 20px;
+            color: #5a6b2f;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .info-card p {
+            font-size: 14px;
+            color: #5a6b2f;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #5a6b2f 0%, #7a8f4a 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+            margin: 40px auto 0;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(212, 139, 94, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: rgba(212, 139, 94, 0.2);
+            border-color: rgba(212, 139, 94, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .contact-item h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .contact-item p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #f5f5dc;
+        }
+
+        /* Footer */
+        footer {
+            background: #2a3515;
+            color: #f5f5dc;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .tagline {
+                font-size: 18px;
+            }
+
+            .logo {
+                font-size: 60px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 38px;
+            }
+
+            .builder-title {
+                font-size: 32px;
+            }
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 5px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+        
+        .call-btn {
+            background: #d48b5e;
+            color: white;
+        }
+        
+        .call-btn:hover {
+            background: #e09f72;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #20bd5a;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .web-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .web-btn:hover {
+            background: white;
+            color: #5a6b2f;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="welcome-banner">
+            <div class="welcome-banner-content">
+                <p>✨ Welcome to Bombay's Streets! ✨</p>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="logo">
+                <span>🌯</span>
+                <span>🥪</span>
+                <span>🥗</span>
+            </div>
+            <h1>BOMBAY FOOD CO.</h1>
+            <p class="tagline">AUTHENTIC BOMBAY STREET FOOD</p>
+            <p class="description">
+                Experience authentic Bombay street food in Melbourne! From colorful Frankies to classic Bombay Sandwiches and rare Chinese Bhel, every dish is made fresh with love from YD's Kitchen.
+            </p>
+            <a href="#order" class="cta-button">Order Now</a>
+        </div>
+    </section>
+
+        <!-- What Makes Us Different Section -->
+    <section style="background: #f9f7f4; padding: 60px 20px;">
+        <div class="container">
+            <h2 class="section-title">What Makes Us Different?</h2>
+            <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                <div style="text-align: center; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 4px solid #5a6b2f;">
+                    <h3 style="font-size: 18px; color: #5a6b2f; margin-bottom: 10px; font-weight: 700;">100% Vegetarian & Fresh</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6;">Every dish made with the finest ingredients</p>
+                </div>
+                <div style="text-align: center; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 4px solid #d48b5e;">
+                    <h3 style="font-size: 18px; color: #5a6b2f; margin-bottom: 10px; font-weight: 700;">Hand-made by YD Kitchen</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6;">Traditional recipes, authentic preparation</p>
+                </div>
+                <div style="text-align: center; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 4px solid #7a8f4a;">
+                    <h3 style="font-size: 18px; color: #5a6b2f; margin-bottom: 10px; font-weight: 700;">5 Colorful Roti Frankies</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6;">Naturally colored with beetroot, turmeric & spinach</p>
+                </div>
+                <div style="text-align: center; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 4px solid #d48b5e;">
+                    <h3 style="font-size: 18px; color: #5a6b2f; margin-bottom: 10px; font-weight: 700;">Authentic Bombay Recipes</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6;">Street food traditions passed down generations</p>
+                </div>
+                <div style="text-align: center; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 4px solid #5a6b2f;">
+                    <h3 style="font-size: 18px; color: #5a6b2f; margin-bottom: 10px; font-weight: 700;">Fully Customizable</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6;">Build your meal exactly how you want it</p>
+                </div>
+                <div style="text-align: center; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 4px solid #7a8f4a;">
+                    <h3 style="font-size: 18px; color: #5a6b2f; margin-bottom: 10px; font-weight: 700;">Rare Indo-Chinese Dishes</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6;">Find flavors you won't see anywhere else</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            <p class="section-subtitle">Fresh, authentic, made with love</p>
+            
+            <div class="menu-grid">
+                <!-- Frankies Card -->
+                <div class="menu-card">
+                    <div class="menu-icon">🌯</div>
+                    <h3>FRANKIES</h3>
+                    <div class="menu-price">Starting $5.50</div>
+                    <p class="menu-description">Build your perfect wrap with 5 colorful rotis, custom fillings, choice of sauces & toppings</p>
+                    <div class="menu-features">
+                        <p>🌈 5 Roti Varieties<br>
+                        🥘 2 Filling Options<br>
+                        🌶️ 5 Sauce Choices<br>
+                        🥗 5 Topping Options</p>
+                    </div>
+                    <a href="#frankie-builder" class="menu-button">Customize Your Frankie →</a>
+                </div>
+
+                <!-- Bombay Sandwich Card -->
+                <div class="menu-card">
+                    <div class="menu-icon">🥪</div>
+                    <h3>BOMBAY SANDWICH</h3>
+                    <div class="menu-price">$7.50</div>
+                    <p class="menu-description">Mumbai's iconic street sandwich with fresh vegetables, signature mint chutney, and authentic spices</p>
+                    <div class="menu-features">
+                        <p>🍞 3 Bread Options<br>
+                        🥔 5 Fresh Fillings<br>
+                        🧀 Optional Cheese<br>
+                        🔥 Toast or Regular</p>
+                    </div>
+                    <a href="#sandwich-builder" class="menu-button">Customize Your Sandwich →</a>
+                </div>
+
+                <!-- Chinese Bhel Card -->
+                <div class="menu-card special">
+                    <div class="badge">RARE IN MELB!</div>
+                    <div class="menu-icon">🥗</div>
+                    <h3>CHINESE BHEL</h3>
+                    <div class="menu-price">$5.50</div>
+                    <p class="menu-description">Mumbai's beloved Indo-Chinese street snack, rarely found in Melbourne. Crispy, tangy, and perfectly spiced</p>
+                    <div class="menu-features">
+                        <p>🔥 Medium-High Spice<br>
+                        🥢 Indo-Chinese Fusion<br>
+                        🌶️ Sweet, Spicy, Tangy<br>
+                        ⚡ Fixed Recipe</p>
+                    </div>
+                    <a href="#order" class="menu-button order-btn">Order Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frankie Builder -->
+    <section id="frankie-builder" class="builder-section">
+        <div class="container">
+            <h2 class="builder-title">Build Your Perfect Frankie</h2>
+            <div class="builder-grid">
+                <div class="builder-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Choose Your Wrap</h3>
+                    <ul class="step-options">
+                        <li>🤍 Wheat Roti (Classic)</li>
+                        <li>⚪ Maida Roti (Soft & Fluffy)</li>
+                        <li>🟢 Palak Roti (Spinach)</li>
+                        <li>🔴 Beetroot Roti (Antioxidant-rich)</li>
+                        <li>🟡 Turmeric Roti (Anti-inflammatory)</li>
+                    </ul>
+                </div>
+
+                <div class="builder-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Choose Your Filling</h3>
+                    <ul class="step-options">
+                        <li>🥔 Spiced Potato</li>
+                        <li>🥡 Paneer (Cottage Cheese)</li>
+                    </ul>
+                </div>
+
+                <div class="builder-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Pick Your Sauces</h3>
+                    <ul class="step-options">
+                        <li>Classic Chutney</li>
+                        <li>Chilly Garlic</li>
+                        <li>Schezwan</li>
+                        <li>Mayo</li>
+                        <li>Mint</li>
+                    </ul>
+                    <p class="step-note">Choose any 2</p>
+                </div>
+
+                <div class="builder-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Add Your Toppings</h3>
+                    <ul class="step-options">
+                        <li>🧀 Cheese</li>
+                        <li>🧅 Onion</li>
+                        <li>🌶️ Capsicum</li>
+                        <li>🥬 Cabbage</li>
+                        <li>🥕 Carrots</li>
+                    </ul>
+                    <p class="step-note">Choose any 3</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sandwich Builder -->
+    <section id="sandwich-builder" class="builder-section">
+        <div class="container">
+            <h2 class="builder-title">Build Your Bombay Sandwich</h2>
+            <div class="builder-grid">
+                <div class="builder-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Choose Your Bread</h3>
+                    <ul class="step-options">
+                        <li>🍞 Brown Bread</li>
+                        <li>⚪ White Bread</li>
+                        <li>🥖 Sourdough</li>
+                    </ul>
+                </div>
+
+                <div class="builder-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Choose Your Fillings</h3>
+                    <ul class="step-options">
+                        <li>🥔 Potatoes</li>
+                        <li>🍅 Tomatoes</li>
+                        <li>🧅 Onions</li>
+                        <li>🥒 Cucumbers</li>
+                        <li>🌶️ Capsicum</li>
+                    </ul>
+                    <p class="step-note">Choose any combination</p>
+                </div>
+
+                <div class="builder-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Cheese?</h3>
+                    <ul class="step-options">
+                        <li>🧀 Add Cheese</li>
+                        <li>⚪ No Cheese</li>
+                    </ul>
+                    <p class="step-note">Optional</p>
+                </div>
+
+                <div class="builder-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Preparation</h3>
+                    <ul class="step-options">
+                        <li>🔥 Toasted</li>
+                        <li>⚪ Regular</li>
+                    </ul>
+                    <p class="step-note">Your choice</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Information -->
+    <section class="info-section">
+        <div class="container">
+            <h2 class="section-title">Important Information</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">🚀</div>
+                    <h3>Same Day Delivery</h3>
+                    <p>Order before 4 PM for same day pickup</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">💡</div>
+                    <h3>Minimum Order</h3>
+                    <p>Minimum 2 items per order (any combination)<br>Example: 1 Frankie + 1 Sandwich ✓</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">📍</div>
+                    <h3>Pickup Location</h3>
+                    <p>City Road, Southbank<br>Melbourne<br>7:30 PM - 9:00 PM</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">🥬</div>
+                    <h3>Dietary Info</h3>
+                    <p>100% Vegetarian<br>May Contain: Nuts, Dairy, Gluten<br>Hand-made fresh daily</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="order" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Get In Touch</h2>
+            <p class="section-subtitle" style="color: #f5f5dc;">Ready to order? We'd love to hear from you!</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📱 Phone</h3>
+                    <p style="font-size: 24px; font-weight: 700; margin: 15px 0;">+61 466 666 929</p>
+                    <a href="tel:+61466666929" class="contact-btn call-btn">📞 Call Now</a>
+                    <a href="https://wa.me/61466666929" class="contact-btn whatsapp-btn" target="_blank">💬 WhatsApp</a>
+                </div>
+
+                <div class="contact-item">
+                    <h3>📱 Instagram</h3>
+                    <p style="font-size: 16px; margin: 15px 0; font-weight: 700;">@bombayfood_co</p>
+                    <a href="https://www.instagram.com/bombayfood_co?igsh=MXQ0aGpxb2QzbnM1MQ==" class="contact-btn web-btn" target="_blank">📸 Follow Us</a>
+                </div>
+
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p style="margin: 10px 0;">City Road, Southbank<br>Melbourne</p>
+                    <p style="font-size: 14px; color: #f5f5dc;">Pickup: 7:30 PM - 9:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Bombay Food Co.</strong></p>
+        <p>Frankies • Bombay Sandwiches • Chinese Bhel</p>
+        <p>Hand-made with love from YD's Kitchen 💚<br>City Road, Southbank, Melbourne</p>
+        <p style="margin-top: 20px; font-size: 12px;">&copy; 2026 Bombay Food Co. All rights reserved.</p>
+    </footer>
+</body>
+</html>
